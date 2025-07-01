@@ -1,0 +1,32 @@
+## YAML Template.
+---
+server:
+    #puerto de escucha del servidor
+    port: ${PUERTO_API:80}
+    #interfaz de escucha del servidor
+    address: 0.0.0.0
+security:
+     jwt:
+         #Clave de encriptacion del token jwt
+         secret-key: ${KEY_ENCRIPTACION:keydeencriptacion}
+spring:
+    application:
+        name: Ensayos Servidor
+    datasource:
+        #Datos de conexion con la base de datos
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/${MYSQL_DATABASE:db_ensayos}
+        username: ${MYSQL_USER:root}
+        password: ${MYSQL_PASSWORD:}
+    jpa:
+        hibernate:
+            ddl-auto: update
+        show-sql: false
+logging:
+    file:
+        #ruta de almacenamiento de los logs
+        name: ${RUTA_ALMACENAMIENTO_API:C:/tmp/almacenamiento}/log/servidor_ensayo.log
+
+almacenamiento:
+    #ruta de almacenamiento de los audios
+    ruta: ${RUTA_ALMACENAMIENTO_API:C:/tmp/almacenamiento}/audio
