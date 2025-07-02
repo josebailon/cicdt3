@@ -6,7 +6,7 @@ pipeline {
         DOCKER_IMAGE = 'ensayos-server:latest'
         NOMBRE = 'contenedor-server'
         RUTA_M_HOME = '/home/ubuntu'
-        RUTA_M = '/home/ubuntu/.m2
+        RUTA_M = '/home/ubuntu/.m2'
     }
  stages {
         stage('Checkout') {
