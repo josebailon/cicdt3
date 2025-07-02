@@ -19,6 +19,7 @@ pipeline {
                     docker {
                         image 'maven:3.9.0-eclipse-temurin-19-alpine'
                         args '-u root'
+                        reuseNode true
                     }
                 }
             steps {
@@ -40,6 +41,7 @@ pipeline {
                     docker {
                         image 'maven:3.9.0-eclipse-temurin-19-alpine'
                         args '-u root'
+                        reuseNode true
                     }
                 }
             steps {
@@ -60,6 +62,7 @@ pipeline {
                 sshagent(['REMOTE_SSH_CREDENTIALS_ID']) {
                     sh """
                     ssh -o StrictHostKeyChecking=no ubuntu@${REMOTE_HOST} '
+                        ls -l
                         docker-compose down
                         docker-compose up --build
                     '
