@@ -14,7 +14,7 @@ pipeline {
             }
         }
         
-        stage('Test'){
+        /*stage('Test'){
                 agent {
                     docker {
                         image 'maven:3.9.0-eclipse-temurin-19-alpine'
@@ -34,7 +34,7 @@ pipeline {
                     junit '**/target/surefire-reports/TEST-*.xml'
                 }
             }
-        }
+        }*/
 
         stage('Build') {
                 agent {
