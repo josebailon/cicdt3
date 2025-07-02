@@ -17,7 +17,7 @@ pipeline {
         stage('Test'){
             agent {
                 docker {
-                    image 'maven:3.9.1-amazoncorretto-19-debian-bullseye'
+                    image 'maven:3.9.1-amazoncorretto-19'
                     args '-v $HOME/.m2:/root/.m2'
                 }
             }
@@ -39,7 +39,7 @@ pipeline {
             steps {
                 echo 'Building the project with Maven inside Docker...'
                 script {
-                    docker.image('maven:3.9.1-amazoncorretto-19-debian-bullseye').inside {
+                    docker.image('maven:3.9.1-amazoncorretto-19 ').inside {
                         sh 'mvn clean package'
                     }
                 }
