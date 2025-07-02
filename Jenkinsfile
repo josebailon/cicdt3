@@ -62,6 +62,7 @@ pipeline {
                 sshagent(['REMOTE_SSH_CREDENTIALS_ID']) {
                     sh """
                     ssh -o StrictHostKeyChecking=no ubuntu@${REMOTE_HOST} '
+                        cd /var/lib/jenkins/workspace/T3
                         ls -l
                         docker-compose down
                         docker-compose up --build
