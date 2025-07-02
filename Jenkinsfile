@@ -9,7 +9,7 @@ pipeline {
  stages {
         stage('Checkout') {
             steps {
-                echo 'Checking out code from GitHub...'
+                echo 'Checking out code from GitHub... '
                 git url: 'https://github.com/josebailon/cicdt3.git', branch: 'master'
             }
         }
