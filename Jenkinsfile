@@ -9,22 +9,18 @@ pipeline {
  stages {
         stage('Checkout') {
             steps {
-                echo 'Checking out code from GitHub... '
+                echo 'Checking out code from GitHub...'
                 git url: 'https://github.com/josebailon/cicdt3.git', branch: 'master'
             }
         }
         
         stage('Test'){
-            agent {
-                docker {
-                    image 'maven:3.9.1-amazoncorretto-19'
-                    args '-v $HOME/.m2:/root/.m2'
-                }
-            }
             steps {
                 echo 'Testing the project with Maven inside Docker...'
                 script {
-                        sh 'mvn -e test'
+                    docker.image('eclipse-temurin:19-alpine').inside {
+                        sh 'mvn test'
+                    }
                 }
             }
             
@@ -39,7 +35,7 @@ pipeline {
             steps {
                 echo 'Building the project with Maven inside Docker...'
                 script {
-                    docker.image('maven:3.9.1-amazoncorretto-19 ').inside {
+                    docker.image('eclipse-temurin:19-alpine').inside {
                         sh 'mvn clean package'
                     }
                 }
