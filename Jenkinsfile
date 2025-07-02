@@ -19,7 +19,7 @@ pipeline {
                 echo 'Testing the project with Maven inside Docker...'
                 script {
                     docker.image('maven:3.9.1-amazoncorretto-19-debian-bullseye').inside {
-                        sh 'mvn test'
+                        sh 'mvn -e test'
                     }
                 }
             }
