@@ -5,7 +5,6 @@ pipeline {
         REMOTE_HOST = 'localhost'
         DOCKER_IMAGE = 'ensayos-server:latest'
         NOMBRE = 'contenedor-server'
-        RUTA_M_HOME = '/home/ubuntu'
         RUTA_M = '/home/ubuntu/.m2'
     }
  stages {
@@ -20,7 +19,7 @@ pipeline {
                 agent {
                     docker {
                         image 'maven:3.9.0-eclipse-temurin-19-alpine'
-                        args '-u root -e USER_HOME_DIR=$RUTA_M -e MAVEN_CONFIG=$RUTA_M_HOME'
+                        args '-u root -v $RUTA_M:/root/.m2'
 
                         reuseNode true
                     }
