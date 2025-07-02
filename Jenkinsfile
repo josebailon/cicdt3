@@ -18,7 +18,7 @@ pipeline {
             steps {
                 echo 'Testing the project with Maven inside Docker...'
                 script {
-                    docker.image('eclipse-temurin:19-alpine').inside {
+                    docker.image('maven:3.9.0-eclipse-temurin-19-alpine').inside {
                         sh 'mvn test'
                     }
                 }
@@ -35,7 +35,7 @@ pipeline {
             steps {
                 echo 'Building the project with Maven inside Docker...'
                 script {
-                    docker.image('eclipse-temurin:19-alpine').inside {
+                    docker.image('maven:3.9.0-eclipse-temurin-19-alpine').inside {
                         sh 'mvn clean package'
                     }
                 }
