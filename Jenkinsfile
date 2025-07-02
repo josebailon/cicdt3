@@ -18,7 +18,7 @@ pipeline {
             agent {
                 docker {
                     image 'maven:3.9.1-amazoncorretto-19-debian-bullseye'
-                    args '-v $HOME/.m2:/root/.m2''
+                    args '-v $HOME/.m2:/root/.m2'
                 }
             }
             steps {
