@@ -18,9 +18,9 @@ pipeline {
             steps {
                 echo 'Testing the project with Maven inside Docker...'
                 script {
-                    //docker.image('maven:3.8.3-openjdk-17').inside {
+                    docker.image('maven:3.9.1-amazoncorretto-19-debian-bullseye').inside {
                         sh 'mvn test'
-                    //}
+                    }
                 }
             }
             
@@ -35,9 +35,9 @@ pipeline {
             steps {
                 echo 'Building the project with Maven inside Docker...'
                 script {
-                    //docker.image('maven:3.8.3-openjdk-17').inside {
+                    docker.image('maven:3.9.1-amazoncorretto-19-debian-bullseye').inside {
                         sh 'mvn clean package'
-                    //}
+                    }
                 }
             }
         }
