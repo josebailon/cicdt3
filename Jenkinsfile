@@ -65,7 +65,7 @@ pipeline {
                         cd /var/lib/jenkins/workspace/T3
                         ls -l
                         docker-compose down
-                        docker-compose up --build
+                        docker-compose up --build -d
                     '
                     """
                 }
