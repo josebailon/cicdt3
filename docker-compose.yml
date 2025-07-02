@@ -7,7 +7,7 @@ services:
         env_file:
              .env
         volumes:
-            - "${RUTA_DB_HOST}:/var/lib/mysql"
+            - "${RUTA_DB_HOST}:/var/almacenamiento/db"
 
     ensayos_server_api:
         image: ensayos_server_api
