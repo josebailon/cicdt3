@@ -18,7 +18,7 @@ pipeline {
             steps {
                 echo 'Testing the project with Maven inside Docker...'
                 script {
-                    docker.image('maven:3.8.3-openjdk-21').inside {
+                    docker.image('maven:3.8.3-openjdk-17').inside {
                         sh 'mvn test'
                     }
                 }
@@ -35,7 +35,7 @@ pipeline {
             steps {
                 echo 'Building the project with Maven inside Docker...'
                 script {
-                    docker.image('maven:3.8.3-openjdk-21').inside {
+                    docker.image('maven:3.8.3-openjdk-17').inside {
                         sh 'mvn clean package'
                     }
                 }
