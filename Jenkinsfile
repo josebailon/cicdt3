@@ -24,7 +24,7 @@ pipeline {
             steps {
                 echo 'Testing the project with Maven inside Docker...'
                 script {
-                        sh 'mvn -X test'
+                        sh 'mvn test'
                 }
             }
             
